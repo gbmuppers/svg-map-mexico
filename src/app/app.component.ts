@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as Mexico from '@svg-maps/mexico'
-// const Mexico = require('@svg-maps/mexico');
+
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ import * as Mexico from '@svg-maps/mexico'
 export class AppComponent {
   public Mexico: any = Mexico;
   public state: String = "";
+  public tooltipStyle:any;
 
   clickLocation(event: Event){
     let location = this.getLocationName(event.target)
@@ -20,10 +21,19 @@ export class AppComponent {
   changeText(event: Event){
     let location = this.getLocationName(event.target)
     this.state = location
+    this.moveOnLocation(event)
   }
 
   getLocationName(node:any) {
     return node && node.attributes.name.value
+  }
+
+  moveOnLocation(event:any) {
+    this.tooltipStyle = {
+      display: 'block',
+      top: `${event.clientY + 5}px`,
+      left: `${event.clientX - 5}px`,
+    }
   }
 
 }

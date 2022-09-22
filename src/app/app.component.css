@@ -1,19 +1,27 @@
 .svg-map {
     width: 100%;
     height: auto;
-    stroke: #666;
+    stroke: #1B4478;
     stroke-width: 1;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 .svg-map__location {
-    fill: #a1d99b;
+    fill: #EAEDF4;
     cursor: pointer;
 }
 .svg-map__location:focus, .svg-map__location:hover {
-    fill: #b8e2b3;
+    fill: #1B4478;
     outline: 0;
 }
 .svg-map__location[aria-checked="true"] {
     fill: #f4bc44;
+}
+
+.examples__block__map__tooltip {
+    position: fixed;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid darkgray;
+    background-color: white;
 }

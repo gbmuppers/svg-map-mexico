@@ -1,20 +1,49 @@
-<div class="container">
+<ul class="nav nav-tabs" style="color: var(--bs-white);background: #21A542;">
+  <li class="nav-item border-0"><a class="nav-link active border-0" href="#" style="background: rgba(255,255,255,0);color: var(--bs-white);"><i class="fas fa-home"></i> Inicio</a></li>
+</ul>
+<ul class="nav nav-tabs" style="background: #D8D8D8;">
+  <li class="nav-item border-0"><a class="nav-link active border-0" href="#" style="background: rgba(255,255,255,0);">&lt; Volver</a></li>
+</ul>
+<div class="container py-2">
+  <div class="row">
+      <div class="col-lg-5 col-xl-4 d-flex align-items-center border border-dark rounded rounded-lg"><i class="fas fa-search mx-1"></i>
+          <form>
+              <div><input class="form-control border-0" type="search" /></div>
+          </form>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-xxl-4 my-3 p-0">
+          <ul class="list-unstyled">
+              <li class="d-flex align-items-center my-3 p-2 rounded rounded-lg" style="min-height: 1rem;max-height: 2rem;height: 100%;background: #21409a;font-weight: bold;color: var(--bs-white);">Gobierno federal</li>
+              <li class="d-flex align-items-center my-3 p-2 rounded rounded-lg" style="min-height: 1rem;max-height: 2rem;height: 100%;background: #21409a;font-weight: bold;color: var(--bs-white);">Gobiernos estatales</li>
+              <li class="d-flex align-items-center my-3 p-2 rounded rounded-lg" style="min-height: 1rem;max-height: 2rem;height: 100%;background: #21409a;font-weight: bold;color: var(--bs-white);">ONG&#39;s</li>
+          </ul>
+      </div>
+      <div class="col">
+        <svg xmlns="http://www.w3.org/2000/svg" class="svg-map" [attr.viewBox]="Mexico.default.viewBox">
+            <path 
+            class="svg-map__location"
+            (click)="clickLocation($event)" 
+            *ngFor="let location of Mexico.default.locations"
+            [attr.id]="location.id" 
+            role="link" 
+            [attr.name]="location.name"
+            [attr.aria-label]="location.name"
+            [attr.d]="location.path"
+            (mouseover)="changeText($event)"
+            (mouseout)="changeText($event)"
+            />
+        </svg>
+        <div class="examples__block__map__tooltip" [style]="tooltipStyle">Ejecutivo</div>
+      </div>
+  </div>
+</div>
+
+<!-- <div class="container">
   <div class="my-2">
       <label class="d-block">Estás sobre: </label>
       <span>{{state}}</span>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-map" [attr.viewBox]="Mexico.default.viewBox">
-      <path 
-      class="svg-map__location"
-      (click)="clickLocation($event)" 
-      *ngFor="let location of Mexico.default.locations"
-      [attr.id]="location.id" 
-      role="link" 
-      [attr.name]="location.name"
-      [attr.aria-label]="location.name"
-      [attr.d]="location.path"
-      (mouseover)="changeText($event)"
-      (mouseout)="changeText($event)"
-      />
-  </svg>
-</div>
+  
+</div> -->
