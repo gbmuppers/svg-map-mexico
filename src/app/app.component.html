@@ -21,18 +21,16 @@
           </ul>
       </div>
       <div class="col">
-        <svg xmlns="http://www.w3.org/2000/svg" class="svg-map" [attr.viewBox]="Mexico.default.viewBox">
+        <svg xmlns="http://www.w3.org/2000/svg" class="svg-map" [attr.viewBox]="Mexico.default.viewBox" (click)="watchPointer($event)">
             <path 
             class="svg-map__location"
-            (click)="clickLocation($event)" 
             *ngFor="let location of Mexico.default.locations"
             [attr.id]="location.id" 
             role="link" 
             [attr.name]="location.name"
             [attr.aria-label]="location.name"
             [attr.d]="location.path"
-            (mouseover)="changeText($event)"
-            (mouseout)="changeText($event)"
+            (click)="changeText($event)"
             />
         </svg>
         <div class="examples__block__map__tooltip" [style]="tooltipStyle">Ejecutivo</div>
